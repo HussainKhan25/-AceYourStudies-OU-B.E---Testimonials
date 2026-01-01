@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceYourStudies:OU[B.E] - Testimonials</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        background: linear-gradient(180deg, #0a0e27 0%, #1a1d3d 50%, #2d1b4e 100%);
+        color: #e8eaf6;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    /* Starfield Background */
+    .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    /* Shooting Stars */
+    .shooting-star {
+        position: fixed;
+        width: 2px;
+        height: 2px;
+        background: linear-gradient(90deg, #fff, transparent);
+        border-radius: 50%;
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+        animation: shoot 3s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    @keyframes shoot {
+        0% {
+            transform: translateX(-100px) translateY(-100px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(1000px) translateY(1000px);
+            opacity: 0;
+        }
+    }
+
+    /* Moon */
+    .moon {
+        position: fixed;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #fef9e7 0%, #f4e9c9 100%);
+        box-shadow:
+            0 0 60px rgba(254, 249, 231, 0.8),
+            0 0 100px rgba(254, 249, 231, 0.4),
+            inset -20px -20px 40px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        transition: transform 0.1s ease-out;
+    }
+
+    .moon::before,
+    .moon::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .moon::before {
+        width: 30px;
+        height: 30px;
+        top: 40px;
+        left: 30px;
+    }
+
+    .moon::after {
+        width: 20px;
+        height: 20px;
+        top: 70px;
+        right: 35px;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 14, 39, 0.7);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+        z-index: 1000;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+        padding: 15px 60px;
+        background: rgba(10, 14, 39, 0.85);
+        backdrop-filter: blur(30px);
+    }
+
+    .logo {
+        font-size: 1.0rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #e8eaf6;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #8b5cf6;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 140px 20px 60px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(139, 92, 246, 0.1);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        animation: float 20s ease-in-out infinite;
+    }
+
+    .glass-shape:nth-child(1) {
+        width: 400px;
+        height: 400px;
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+    }
+
+    .glass-shape:nth-child(2) {
+        width: 300px;
+        height: 300px;
+        top: 60%;
+        right: 10%;
+        animation-delay: 3s;
+    }
+
+    .glass-shape:nth-child(3) {
+        width: 250px;
+        height: 250px;
+        bottom: 10%;
+        left: 15%;
+        animation-delay: 6s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) translateX(0) scale(1);
+        }
+        33% {
+            transform: translateY(-30px) translateX(20px) scale(1.1);
+        }
+        66% {
+            transform: translateY(20px) translateX(-20px) scale(0.9);
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1100px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .brand-name {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #ffffff 0%, #e4e4e4 50%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        letter-spacing: -1px;
+        text-transform: uppercase;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #60a5fa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 30px;
+        letter-spacing: -2px;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.8rem;
+        color: #c7d2fe;
+        font-weight: 600;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+
+    .hero-desc {
+        font-size: 1.2rem;
+        color: #a5b4fc;
+        margin-bottom: 50px;
+        max-width: 750px;
+        line-height: 2;
+        animation: fadeInUp 1s ease-out 0.4s backwards;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 20px 60px;
+        background: rgba(139, 92, 246, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 2px solid rgba(139, 92, 246, 0.5);
+        color: #c7d2fe;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1s ease-out 0.6s backwards;
+    }
+
+    .cta-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.7s ease;
+    }
+
+    .cta-button:hover::before {
+        left: 100%;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-7px) scale(1.05);
+        box-shadow: 0 30px 80px rgba(139, 92, 246, 0.5);
+        background: rgba(139, 92, 246, 0.3);
+        border-color: rgba(139, 92, 246, 0.7);
+        color: #e8eaf6;
+    }
+
+    /* Stats Section */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+        margin-top: 100px;
+        max-width: 1000px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 40px 30px;
+        background: rgba(139, 92, 246, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 25px;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        animation: fadeInUp 1s ease-out backwards;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .stat-item:hover::before {
+        opacity: 1;
+    }
+
+    .stat-item:nth-child(1) { animation-delay: 0.7s; }
+    .stat-item:nth-child(2) { animation-delay: 0.8s; }
+    .stat-item:nth-child(3) { animation-delay: 0.9s; }
+
+    .stat-item:hover {
+        transform: translateY(-15px) scale(1.05);
+        background: rgba(139, 92, 246, 0.25);
+        border-color: rgba(139, 92, 246, 0.5);
+        box-shadow: 0 25px 60px rgba(139, 92, 246, 0.4);
+    }
+
+    .stat-number {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+    }
+
+    .stat-label {
+        color: #c7d2fe;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 120px 20px;
+        max-width: 1600px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 900;
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 25px;
+        letter-spacing: -1px;
+    }
+
+    .section-header p {
+        font-size: 1.4rem;
+        color: #c7d2fe;
+        max-width: 750px;
+        margin: 0 auto;
+        line-height: 1.9;
+        font-weight: 500;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 40px;
+    }
+
+    .testimonial-card {
+        background: rgba(139, 92, 246, 0.1);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1.5px solid rgba(139, 92, 246, 0.3);
+        border-radius: 30px;
+        padding: 50px;
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        cursor: pointer;
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+    }
+
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1, #3b82f6, #a78bfa);
+        background-size: 300% 300%;
+        border-radius: 30px;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: -1;
+        animation: gradientMove 6s ease infinite;
+    }
+
+    @keyframes gradientMove {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .testimonial-card:hover::before {
+        opacity: 1;
+    }
+
+    .testimonial-card::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
+        transform: translate(-50%, -50%);
+        transition: all 0.6s ease;
+        pointer-events: none;
+    }
+
+    .testimonial-card:hover::after {
+        width: 500px;
+        height: 500px;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-20px) scale(1.03);
+        background: rgba(139, 92, 246, 0.2);
+        box-shadow: 0 30px 90px rgba(139, 92, 246, 0.4);
+        border-color: rgba(139, 92, 246, 0.6);
+    }
+
+    .quote-icon {
+        color: #8b5cf6;
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+        opacity: 0.5;
+        transition: all 0.4s ease;
+        filter: drop-shadow(0 4px 8px rgba(139, 92, 246, 0.3));
+    }
+
+    .testimonial-card:hover .quote-icon {
+        opacity: 1;
+        transform: scale(1.3) rotate(-8deg);
+        filter: drop-shadow(0 8px 16px rgba(139, 92, 246, 0.5));
+    }
+
+    .testimonial-text {
+        font-size: 1.15rem;
+        color: #c7d2fe;
+        margin-bottom: 40px;
+        font-style: italic;
+        font-weight: 400;
+        flex-grow: 1;
+        line-height: 2;
+        transition: color 0.3s ease;
+    }
+
+    .testimonial-card:hover .testimonial-text {
+        color: #e8eaf6;
+    }
+
+    .testimonial-author {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 30px;
+        border-top: 2px solid rgba(139, 92, 246, 0.3);
+        transition: border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover .testimonial-author {
+        border-top-color: rgba(139, 92, 246, 0.6);
+    }
+
+    .author-name {
+        font-weight: 800;
+        color: #e8eaf6;
+        font-size: 1.3rem;
+        letter-spacing: 0.3px;
+    }
+
+    .author-role {
+        color: #a5b4fc;
+        font-size: 1.05rem;
+        font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+        background: rgba(10, 14, 39, 0.7);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        color: #c7d2fe;
+        text-align: center;
+        padding: 60px 20px;
+        font-size: 1.05rem;
+        border-top: 1px solid rgba(139, 92, 246, 0.3);
+        box-shadow: 0 -8px 32px rgba(99, 102, 241, 0.2);
+        position: relative;
+        z-index: 2;
+    }
+
+    footer p {
+        margin: 15px 0;
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .testimonials-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            padding: 15px 20px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-links {
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            padding: 120px 20px 40px;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+        }
+
+        .stats {
+            gap: 25px;
+            margin-top: 60px;
+            grid-template-columns: 1fr;
+        }
+
+        .testimonials-section {
+            padding: 80px 15px;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            padding: 35px 25px;
+        }
+
+        .moon {
+            width: 100px;
+            height: 100px;
+        }
+
+        .cta-button {
+            padding: 18px 40px;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+        }
+
+        .moon {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <!-- Starfield -->
+    <div class="stars" id="starfield"></div>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-star" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 30%; left: 50%; animation-delay: 2s;"></div>
+    <div class="shooting-star" style="top: 50%; left: 80%; animation-delay: 4s;"></div>
+
+    <!-- Moon -->
+    <div class="moon" id="moon"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">🎓 AceYourStudies:OU[B.E] - Testimonials</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="glass-shape"></div>
+        <div class="glass-shape"></div>
+        <div class="glass-shape"></div>
+
+        <div class="hero-content">
+            <div class="brand-name">🎓 AceYourStudies:OU[B.E]</div>
+            <h1>Learn • Grow • Inspire</h1>
+            <p class="hero-subtitle">Juniors, Mentors & Colleagues</p>
+            <p class="hero-desc">A community dedicated to academic excellence and professional growth. Discover authentic feedback from mentors who shaped journeys, colleagues who collaborated on success, and juniors who were inspired to achieve greatness.</p>
+            <a href="#testimonials" class="cta-button">Explore Testimonials</a>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Success Stories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Community Groups</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Positive Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+<section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+        <h2>What Our Community Says</h2>
+        <p>Real experiences from mentors, juniors, and colleagues across our learning journey</p>
+    </div>
+
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">As the IEEE Student Branch Secretary at NSAKCET, Mohammed Hussain Abid Khan consistently transformed ideas into action. His passion, leadership, and dedication made a lasting impact on IEEE initiatives and team collaboration.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Dr. Mohammad Sanaullah Qaseem</span>
+                <span class="author-role">IEEE Student Branch NSAKCET Counsellor</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Artists’ Club President | SIH Student Mentor | Leader with Creativity & Impact</p>
+            <div class="testimonial-author">
+                <span class="author-name">Ms. Umme Ruma</span>
+                <span class="author-role">NSAKCET Mentor</span>
+            </div>
+        </div>
+
+
+<div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Having mentored Hussain across multiple platforms, I’ve seen firsthand his evolution into a formidable designer. He first stood out as a sharp student in my Graphic Design course, but his impact went far beyond the classroom.
+
+Hussain brings a unique perspective to his creative work. This dedication was on full display during the Professionals Summit 2025, where he volunteered under my leadership and handled high-pressure tasks with ease.
+
+Most recently, his talent was validated on a grand scale by winning the IEEE GRSS SYP Summit 2025 Logo Design Contest.
+
+Hussain is that rare find: a designer who understands both the 'why' and the 'how.' He is a valuable asset to any creative team</p>
+            <div class="testimonial-author">
+                <span class="author-name">Huda Khan </span>
+                <span class="author-role">Design Mentor</span>
+            </div>
+        </div>
+
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">You are a beautiful soul I have ever came across.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mehvish Fatima</span>
+                <span class="author-role">IEEE Colleague</span>
+            </div>
+        </div>
+    </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I really appreciate you the way you motivates us helps us guide us may Allah bless you with everything good thank you jazakallah Khairan</p>
+            <div class="testimonial-author">
+                <span class="author-name">SF</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Excellent support of related to studies projects and events as well related to our field such as IT work shop's and much more</p>
+            <div class="testimonial-author">
+                <span class="author-name">Fasi</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Thank you for your mentorship and constant guidance throughout this journey.
+Your advice and encouragement have helped me gain clarity and confidence.
+I truly appreciate the time and effort you invested in supporting my growth.
+Your insights have made a meaningful difference in my learning and decisions.
+I am grateful for your guidance and will carry these lessons forward.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mohammed Fahad Mubeen </span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">A great inspiration and mentor who have guided not only us but many juniors and helped them with their problems</p>
+            <div class="testimonial-author">
+                <span class="author-name">NS</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I learned the ways to write my exams and to also form up my methods to clear those exams. I also loved the mentorship of you at every step of our journey. </p>
+            <div class="testimonial-author">
+                <span class="author-name">S.ARA</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Hussain bhai GHOST is an amazing inspiration for us to go through in academics and all to grow and motivated always. </p>
+            <div class="testimonial-author">
+                <span class="author-name">Mohd Asad Ali</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">The mentorship was very helpful and well-organized, with clear instructions at every step providing clear guidance at every stage where it makes learning easy.</p>
+            <div class="testimonial-author">
+                <span class="author-name">M.S</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Very helpful and very informative </p>
+            <div class="testimonial-author">
+                <span class="author-name">O.A.K</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I am extremely thankful to you for your constant help and guidance throughout my academic journey. You generously provided clear and well-structured notes and patiently resolved my project-related or study related queries when no one else could. Your support went beyond expectations and made complex topics much easier to understand. This guidance played a crucial role in my academic confidence and success. May Allah Taala reward you abundantly. May he makes you successfull in this world and hereafter Aameen Ya Rab</p>
+            <div class="testimonial-author">
+                <span class="author-name">N.U</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I really appreciate your help and guidance. You're like a big brother!
+Jazak Allahu Khair.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Syed Zubair Ahmed</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I passed big Subjects like OR Discrete mathematics FA DAA ALC and Compiler Design and stuff Thanks broski.</p>
+            <div class="testimonial-author">
+                <span class="author-name">M.F</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I’m truly grateful to have a senior like you in my college journey. You’ve been a constant support in my day-to-day academics, always guiding me with patience and clarity. Beyond studies, you stood by me during personal challenges and supported me like a true big brother. Your encouragement and mentorship motivated me to participate in events and hackathons with confidence. Having your guidance made my college life smoother, more meaningful, and full of learning. Thank you for being a mentor, guide, and family away from home.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Abdul Rayyan</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">                                                                                                                                                                                                                    Alhamdulillah, I would like to express my heartfelt thanks to Hussain Bhaiyya for his valuable guidance during our engineering studies. His support, especially in showing us the proper way of writing answers, was extremely helpful in improving our presentation and clarity during exams.
+
+He also helped us understand complex problems and programming concepts with simplicity and clarity, making tough subjects much easier to approach. In addition, his tips on how to maintain and organize our answer sheets effectively were truly beneficial in scoring better marks and presenting answers professionally.
+
+May Allah reward him immensely for his time, knowledge, and sincere efforts. JazakAllah Khair, Hussain Bhaiyya</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mohammed Asrar Uddin</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">A true leader and guide who not only guides you for academics but also for hereafter.</p>
+            <div class="testimonial-author">
+                <span class="author-name">M.S.A</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">First of all Thanks to You for guideline in your's academic year it's being wonderful journey with an helpful for being you part of this journey.</p>
+            <div class="testimonial-author">
+                <span class="author-name">M.R</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I'm extremely grateful to Hussain bhai for being more than just a senior, an exceptional mentor who had a profound impact during my Engineering journey. Your continuous support, valuable guidance, and willingness to help at every turn were instrumental in my growth and development. I appreciate your inspiration and influence, which has been truly transformative. Thank you, for being such a remarkable and supportive mentor!</p>
+            <div class="testimonial-author">
+                <span class="author-name">A.A</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Grateful to have a senior like him. a truly kind, genuine and inspiring person. He has motivated and guided us at every step of our journey. Honestly , I wouldn’t have made it through so many semesters without his support.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Juveriya Begum </span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Found to be great to have an senior like you</p>
+            <div class="testimonial-author">
+                <span class="author-name">Ishaan Ahmed</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Hussain bhaiya your like my elder brother, who always helped me when I need help in Academic and personally. I never felt any strange with you always felt like a family and a elder brother. May Allah SWT bless you with his wonders of this life and hereafter.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Ismail Ali</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Words aren't enough to describe your companionship in my journey, but realistically speaking I've known you for 4 years and now and I wish we could meet sooner. Your advice, help and contribution and impacted most of the students if not all. I mean, you're a chill guy.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mohd Danish Shareef </span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">It will really help me to clear the semester exam</p>
+            <div class="testimonial-author">
+                <span class="author-name">A.B</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">It will really help me to clear the semester exam</p>
+            <div class="testimonial-author">
+                <span class="author-name">N</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Good study material that are hard to find elsewhere with amazing explanation. makes learning easy.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Kr</span>
+                <span class="author-role">Senior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Truly grateful for the help you have provided so far</p>
+            <div class="testimonial-author">
+                <span class="author-name">M.A.R</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Mohammed Hussain Abid Khan has been a constant source of guidance throughout our B.E journey. From the very first semester till now, even in Semester 7, his support has never stopped. Whether it was providing important questions, clear notes, or last-minute clarity before exams, AceYourStudies-OU[B.E] has always been there when we needed it most.
+Beyond academics, his guidance in mini projects, major projects, and overall career direction has helped many of us think clearly and move confidently. What truly stands out is his selfless intention, helping students without expecting anything in return.
+His consistency, sincerity, and genuine concern for students make him more than just a mentor; he is a backbone for many of us during engineering. We are deeply grateful for everything he has done and continues to do.
+May Allah reward him for every student he has helped and every burden he has eased.
+Jazakallahukhairan ✨</p>
+            <div class="testimonial-author">
+                <span class="author-name">A.Sd.</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Your tips/experience on how to write exam, how to highlight, underline, handwriting, way of coloring etc. Helped me in clearing my exams on time especially 7th and 8th sem. Thanks Hussain for ur unconditional love/help in helping lot of students like me.  Small things makes a difference for sure. </p>
+            <div class="testimonial-author">
+                <span class="author-name">Sy</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">He guided us during hackathons and also for internships. He also helped us academically by providing useful notes and previous year question papers, and explained how theory exams and question patterns work. His guidance made it easier to understand the academic structure and prepare better.</p>
+            <div class="testimonial-author">
+                <span class="author-name">SY.A.S</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Well hussain bhai was one of the true living legend, when I firstly joined this college, I was dissapointed with the personal reasons and somehow I managed to be a part of the clg...
+Then from my second years hussain bhai were playing their major roles and this caught me the attention,
+I took help from Ace your studies to clear my first year and second year. Rest I tool help of chatgpt and Alhamdulilla I never got backlog yet and I secured my goal 8.0 CGPA.</p>
+            <div class="testimonial-author">
+                <span class="author-name">KHADER SHAREEF MADANI</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">This testimonial is to express my heartfelt gratitude to Hussain Bhaiyya for his four years of selfless dedication and guidance through Ace Studies. He has supported and mentored many brothers and sisters, creating a positive and motivating learning environment. Personally, I am very thankful for his guidance in my academics and for patiently helping me with my internship tasks whenever I needed support. For me, he has been more than a mentor or senior he has been like a true elder brother whose encouragement and belief in me gave me confidence and clarity. As he begins a new chapter of life with his marriage, I wish him great happiness, success, and blessings, and I am proud to have been guided by him.Once again Thank you so much bhaiyya ☺️👋</p>
+            <div class="testimonial-author">
+                <span class="author-name">Barikah Noorain</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">This platform helped me may be little bit or more but it helped me. </p>
+            <div class="testimonial-author">
+                <span class="author-name">F.M</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">You were a great mentor and a great leader for the team</p>
+            <div class="testimonial-author">
+                <span class="author-name">Awad Bin Osman </span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I would like to express my sincere gratitude to my senior,Mohammed Hussain Abid Khan, for his exceptional mentorship and guidance. His deep knowledge, patience, and constant encouragement have played a significant role in shaping my professional growth. He was always approachable and willing to share insights, helping me build confidence and clarity in my studies. His leadership, discipline, and positive attitude continue to inspire me. I am truly thankful for his support and consider myself fortunate to have learned under his mentorship.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Syed Musharaf Afzal</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I’m truly grateful to have had a senior like you during my engineering journey. From sharing notes and guiding me academically to giving genuine career advice and constant motivation, you’ve always been there whenever I needed help. Your support made difficult phases feel lighter and gave me clarity when I felt lost. Thank you for being so patient, kind, and encouraging. I’ll always be thankful for your guidance and inspiration. I feel incredibly fortunate to have had such a supportive and inspiring senior during my engineering journey. From academic guidance and notes to career advice and motivation, your mentorship has made a lasting impact on me. Thank you for always being approachable, encouraging, and selfless with your knowledge. I truly appreciate everything you’ve done.</p>
+            <div class="testimonial-author">
+                <span class="author-name">I.Fa</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">JazakAllah khair bhaiya for always supporting, for always providing the best guidance for our academics, ace your studies holds an extremely special place, no words can describe how this have helped all of us in our academics, and also jazakAllahu khairan for all the advices, help, support you did as a big brother, May Allah SWT grant you with the bestest in both duniya and Akhirah, ameen summa ameen.</p>
+            <div class="testimonial-author">
+                <span class="author-name">S.Y.Kh</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Alhamdulillah! At some point your mentorship helps us a lot for Academics. The actual way of studying consistently and with a step by step  way of practice and revise.</p>
+            <div class="testimonial-author">
+                <span class="author-name">R.Kh</span>
+                <span class="author-role">K.Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">"I'm incredibly grateful to have had you as my guide and mentor. Their unwavering support, valuable insights, and expertise have been instrumental in shaping my academic journey and boosting my personal motivation. Your encouragement, and constructive feedback have helped me grow both as a student and as an individual. I'm thankful for you dedication and commitment to my success."
+Thankyou.</p>
+            <div class="testimonial-author">
+                <span class="author-name">I.J</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Having a mentor like you has been a blessing for us. Your mentorship experience has shaped my learning and confidence, guidance and encouragement made a lasting impact on my journey. I hope this  will continue to guide me in my future endeavors. 
+ I truly appreciate your support,
+I Sincerely thank you for your guidance. 
+</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mohammed Afreen</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Whenever I needed some qyps or materials i would search here I yes I would surely get help👏 very helpful for introverts</p>
+            <div class="testimonial-author">
+                <span class="author-name">Su.</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">The first time your resources were a huge help for me was when I had received a WhatsApp message from my friend in 3rd sem. It had all subject links, youtube playlist links and suggested units order, etc as far as I remember. From every sem after that, I always go to your YouTube channel in order to check if there’s a subject playlist. The playlists are very beneficial. Also the suggested units make it easy for me to decide which units to study every sem. Especially for SS, the blog guides are wonderfully made. I remember I had a doubt too and you replied promptly. Your constant reminders on telegram help all of us. Sometimes when I search for notes in MVSR community in Telegram, they are mostly your messages which appear. This shows how much you’ve been a great support for all the students. I’m not sure when you have graduated, but it looks like you still tried to help others even after graduating. There are honestly less people like you in college life who care about helping all the students overall, not just their friends. JazakAllah khair. May Allah reward you.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Mah.</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I would like to express my sincere gratitude to you for your constant support, clear explanations, and encouragement have helped me improve and grow in my studies. I truly appreciate the time and effort.</p>
+            <div class="testimonial-author">
+                <span class="author-name">N.</span>
+                <span class="author-role">Colleague</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Thank you for always being there and guiding me in academics, projects and other aspects which made the things much easier ...Your support truly means a lot to me I have always admired your positive attitude, especially in situations where I might have felt low... ✨</p>
+            <div class="testimonial-author">
+                <span class="author-name">Sy.S</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">We started off on a good note when I was in my first year and you were in your third, and we met through IEEE. No matter what happened, you never judged me the way others did—even when I failed all my subjects in the first semester. You always stayed supportive, kept me motivated, and helped me in so many ways, especially by always taking the time to answer my questions.</p>
+            <div class="testimonial-author">
+                <span class="author-name">XYZ</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Apke baare me kitna bhi bolo utha kam hai bhai </p>
+            <div class="testimonial-author">
+                <span class="author-name">Abu Talha</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Hussain bhaiya has been an exceptional senior and team leader who guided me with great patience and dedication. He not only supported me academically but also personally took the time to understand my doubts and help me grow with confidence. His leadership skills, clear guidance, and approachable nature made teamwork smooth and motivating. He always encouraged collaboration, maintained positivity within the team, and led by example. I am truly grateful for his constant support, mentorship, and the valuable learning experience he provided.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Sobiya</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I am sincerely thankful to my senior for their valuable mentorship and support. Their guidance, patience, and willingness to share knowledge helped me understand concepts more clearly and improve my skills. They were always approachable, provided constructive feedback, and motivated me to do better. Learning under their guidance has been a great experience, and it has positively contributed to my professional growth.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Jahangir Ali</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Ability to mentor and develop talent  Actively invests in the growth of others, providing guidance that accelerates career progression and strengthens the overall team.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Fahad Ullah Khan</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">Mohammed Hussain Abid Khan is an highly motivated and responsible person and he help frontronics team as career advice and guidance </p>
+            <div class="testimonial-author">
+                <span class="author-name">Frontronics team</span>
+                <span class="author-role">Company</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">You are the best senior I have ever met. You have helped me so much.from graphic design to SIH internal hackathon and everything in between. You are always respectful to everyone, very humble, understanding, and extremely kind. I’m truly grateful for all your support and guidance. Thank you for everything.</p>
+            <div class="testimonial-author">
+                <span class="author-name">S.K</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I like your helping nature. This helped me to passy exams</p>
+            <div class="testimonial-author">
+                <span class="author-name">Arjumand</span>
+                <span class="author-role">Colleague</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">A person who cannot be defined in one sentence or a word. Truly a senior juniors admire to be like . Someone who tackles toughest situations in such a smooth and disciplined way. Not just an example of best senior but truly a person to be appreciated by every one for his dedication, hardwork , for excellent leadership qualities and for excellent manners he has. Basically an all in one (for motivation and a mentor to look for in all the seniors i have seen ) it’s none other than u for me hussain Bhaiya.  may u always achieve success in life and  have a great journey ahead . A goodbye from ur junior 😊</p>
+            <div class="testimonial-author">
+                <span class="author-name">Sarah Ali</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">I am truly grateful to have had you as a mentor during the SIH 2025 Internal Hackathon. Your constant support, clear guidance, and encouragement at every step made a huge difference for all the teams. You was always approachable, patient, and motivating, helping us refine our ideas and think in the right direction. Your mentorship not only boosted our confidence but also made the entire hackathon journey more meaningful and enriching. Thank you for guiding us and standing by us throughout the process.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Ayesha Fatima</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">You’ve helped me and guided me throughout the hackathon process of SIH 2024.</p>
+            <div class="testimonial-author">
+                <span class="author-name">Naiéf</span>
+                <span class="author-role">Junior</span>
+            </div>
+        </div>
+
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>©AceYourStudies:OU[B.E] Learn Grow Inspire - Empowering Academic Excellence</p>
+        <p>Built with passion for learning and growth 🚀 - Mohammed Hussain Abid Khan</p>
+    </footer>
+
+    <script>
+        // Generate starfield
+        const starfield = document.getElementById('starfield');
+        const numStars = 200;
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            const size = Math.random() * 3;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            
+            starfield.appendChild(star);
+        }
+
+        // Moon parallax effect
+        const moon = document.getElementById('moon');
+        let moonX = Math.random() * (window.innerWidth - 200) + 50;
+        let moonY = Math.random() * 300 + 50;
+        moon.style.top = moonY + 'px';
+        moon.style.right = (window.innerWidth - moonX - 150) + 'px';
+
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+            moon.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
